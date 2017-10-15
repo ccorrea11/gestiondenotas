@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-10-2017 a las 01:45:56
--- Versión del servidor: 10.1.25-MariaDB
--- Versión de PHP: 7.1.7
+-- Tiempo de generación: 12-10-2017 a las 06:35:25
+-- Versión del servidor: 10.1.16-MariaDB
+-- Versión de PHP: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -29,7 +27,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `asignaturas` (
-  `asig_id` int(11) NOT NULL
+  `asig_id` int(11) NOT NULL,
+  `nomb_asig` varchar(30) NOT NULL,
+  `desc_asig` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -52,7 +52,9 @@ CREATE TABLE `asig_x_estu` (
 
 CREATE TABLE `ciudades` (
   `ciudad_id` int(11) NOT NULL,
-  `pais_id` int(11) NOT NULL
+  `pais_id` int(11) NOT NULL,
+  `nomb_ciudad` varchar(30) NOT NULL,
+  `desc_ciudad` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -63,7 +65,12 @@ CREATE TABLE `ciudades` (
 
 CREATE TABLE `estudiantes` (
   `estu_id` int(11) NOT NULL,
-  `usu_id` int(11) NOT NULL
+  `usu_id` int(11) NOT NULL,
+  `docu_estu` int(30) NOT NULL,
+  `nomb_estu` varchar(30) NOT NULL,
+  `apel_estu` varchar(30) NOT NULL,
+  `sexo_estu` varchar(30) NOT NULL,
+  `correo_estu` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -99,7 +106,9 @@ CREATE TABLE `estu_x_profesor` (
 CREATE TABLE `instituciones` (
   `inst_id` int(11) NOT NULL,
   `ciudad_id` int(11) NOT NULL,
-  `usu_id` int(11) NOT NULL
+  `usu_id` int(11) NOT NULL,
+  `nomb_inti` varchar(30) NOT NULL,
+  `desc_insti` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -109,7 +118,9 @@ CREATE TABLE `instituciones` (
 --
 
 CREATE TABLE `paises` (
-  `pais_id` int(11) NOT NULL
+  `pais_id` int(11) NOT NULL,
+  `nomb_pais` varchar(30) NOT NULL,
+  `desc_pais` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -121,7 +132,11 @@ CREATE TABLE `paises` (
 CREATE TABLE `profesores` (
   `prof_id` int(11) NOT NULL,
   `inst_id` int(11) NOT NULL,
-  `usu_id` int(11) NOT NULL
+  `usu_id` int(11) NOT NULL,
+  `nomb_prof` varchar(30) NOT NULL,
+  `apel_prof` varchar(30) NOT NULL,
+  `sexo_prof` varchar(30) NOT NULL,
+  `correo_prof` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -143,7 +158,9 @@ CREATE TABLE `prof_x_institucion` (
 --
 
 CREATE TABLE `roles` (
-  `rol_id` int(11) NOT NULL
+  `rol_id` int(11) NOT NULL,
+  `nomb_rol` varchar(30) NOT NULL,
+  `desc_rol` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -154,7 +171,9 @@ CREATE TABLE `roles` (
 
 CREATE TABLE `usuarios` (
   `usu_id` int(11) NOT NULL,
-  `rol_id` int(11) NOT NULL
+  `rol_id` int(11) NOT NULL,
+  `nomb_usua` varchar(30) NOT NULL,
+  `contr_usua` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -374,7 +393,6 @@ ALTER TABLE `prof_x_institucion`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`rol_id`) REFERENCES `roles` (`rol_id`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

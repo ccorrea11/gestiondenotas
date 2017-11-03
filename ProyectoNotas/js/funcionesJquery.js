@@ -93,163 +93,163 @@ function Inicio(){
 
 
 
-// //EMPRESA
+//EMPRESA
 
-// // nueva empresa
-// $("#contenido").on("click","button#nuevo1",function(){
-// 		$("#titulo").html("Nueva Empresa");
-// 		$( "#contenido" ).load("./php/empresa/nuevaEmpresa.php");	
-// 	})
+// nueva empresa
+$("#contenido").on("click","button#nuevo1",function(){
+		$("#titulo").html("Nueva Empresa");
+		$( "#contenido" ).load("./php/empresa/nuevaEmpresa.php");	
+	})
 
-// // Grabar empresa
-// $("#contenido").on("click","button#grabar1",function(){
-// 		var datos=$("#fempresa").serialize();		
-// 		$.ajax({
-// 			type:"post",
-// 			url:"./php/empresa/controladorEmpresa.php",
-// 			data:datos,
-// 			dataType:"html",
-// 			success:function(result){
-// 				$("#titulo").html("Listado Empresas");
-// 				$("#contenido" ).load("./php/empresa/index.php");
-// 			}
-// 		})
-// 	});	
-// // cerrar empresa
-// $("#contenido").on("click","button.btncerrar3",function(){
-// 		$("#titulo").html("Listado empresas");
-// 		$( "#contenido" ).load("./php/empresa/index.php");	
-// 	})
-// // borrar empresa
-// $("#contenido").on("click","a.borrar1",function(){
-// 		//Recupera datos del formulario
-// 		var codigo = $(this).attr("codigo");
-// 		if ( confirm("¿Realmente desea borrar el registro?")){		
-// 			$.ajax({
-//         		method: "post",
-//             	url: "./php/empresa/controladorEmpresa.php",
-//             	data: {codigo: codigo, accion:'borrar'},
-//             	dataType: "html"
-//         	})  .done(function( result ) {
-//         		$("#titulo").html("Listado Empresas");
-//         		$( "#contenido" ).load("./php/empresa/index.php");
-//         	});
+// Grabar empresa
+$("#contenido").on("click","button#grabar1",function(){
+		var datos=$("#fempresa").serialize();		
+		$.ajax({
+			type:"post",
+			url:"./php/empresa/controladorEmpresa.php",
+			data:datos,
+			dataType:"html",
+			success:function(result){
+				$("#titulo").html("Listado Empresas");
+				$("#contenido" ).load("./php/empresa/index.php");
+			}
+		})
+	});	
+// cerrar empresa
+$("#contenido").on("click","button.btncerrar3",function(){
+		$("#titulo").html("Listado empresas");
+		$( "#contenido" ).load("./php/empresa/index.php");	
+	})
+// borrar empresa
+$("#contenido").on("click","a.borrar1",function(){
+		//Recupera datos del formulario
+		var codigo = $(this).attr("codigo");
+		if ( confirm("¿Realmente desea borrar el registro?")){		
+			$.ajax({
+        		method: "post",
+            	url: "./php/empresa/controladorEmpresa.php",
+            	data: {codigo: codigo, accion:'borrar'},
+            	dataType: "html"
+        	})  .done(function( result ) {
+        		$("#titulo").html("Listado Empresas");
+        		$( "#contenido" ).load("./php/empresa/index.php");
+        	});
 
-// 		}
-// 	});
-// // editatar empresa
-// $("#contenido").on("click","a.editar1",function(){
-// 		$("#titulo").html("Editar Empresa");
-// 		//Recupera datos del fromulario
-// 		var codigo = $(this).attr("codigo");
-// 		$.ajax({
-// 			type:"post",
-// 			url:"./php/empresa/editarEmpresa.php",
-// 			data:"codigo=" + codigo,
-// 			dataType:"html"
-//         	}) .done(function( result ) {
-//         		$("#contenido").html(result);
-//         	});
-// 	});
+		}
+	});
+// editatar empresa
+$("#contenido").on("click","a.editar1",function(){
+		$("#titulo").html("Editar Empresa");
+		//Recupera datos del fromulario
+		var codigo = $(this).attr("codigo");
+		$.ajax({
+			type:"post",
+			url:"./php/empresa/editarEmpresa.php",
+			data:"codigo=" + codigo,
+			dataType:"html"
+        	}) .done(function( result ) {
+        		$("#contenido").html(result);
+        	});
+	});
 
-// // actualizar empresa
-// $("#contenido").on("click","button#actualizar1",function(){		
-// 		$("#titulo").html("Listado Empresas");
-//         var datos=$("#fempresa").serialize();
-//             $.ajax({
-// 			type:"post",
-// 			url:"./php/empresa/controladorEmpresa.php",
-// 			data: datos,
-// 			dataType:"html"
-//         	}) .done(function( result ) {
-//         		$( "#contenido" ).load("./php/empresa/index.php");
-//         	});
-// 	});
+// actualizar empresa
+$("#contenido").on("click","button#actualizar1",function(){		
+		$("#titulo").html("Listado Empresas");
+        var datos=$("#fempresa").serialize();
+            $.ajax({
+			type:"post",
+			url:"./php/empresa/controladorEmpresa.php",
+			data: datos,
+			dataType:"html"
+        	}) .done(function( result ) {
+        		$( "#contenido" ).load("./php/empresa/index.php");
+        	});
+	});
 
-// // contrato por personas
+// contrato por personas
 
-// $("#contenido").on("click","a.empleos",function(){
-// 		var clase = $(this).attr("clase");
-// 		$("#titulo").html("Contratos por "+clase);
-// 		//Recupera datos del fromulario
-// 		var codigo = $(this).attr("codigo");
-// 		$.ajax({
-// 			type:"post",
-// 			url:"./php/contrato/index.php",
-// 			data:{codigo: codigo, clase:clase},
-// 			dataType:"html"
-//         	}) .done(function( result ) {
-//         		$("#contenido").html(result);
-//         	});
-// 	});
+$("#contenido").on("click","a.empleos",function(){
+		var clase = $(this).attr("clase");
+		$("#titulo").html("Contratos por "+clase);
+		//Recupera datos del fromulario
+		var codigo = $(this).attr("codigo");
+		$.ajax({
+			type:"post",
+			url:"./php/contrato/index.php",
+			data:{codigo: codigo, clase:clase},
+			dataType:"html"
+        	}) .done(function( result ) {
+        		$("#contenido").html(result);
+        	});
+	});
 
-// // agregar contrato
-// $("#contenido").on("click","button#nuevo2",function(){
-// 		$("#titulo").html("Nuevo contrato");
-// 		$( "#contenido" ).load("./php/contrato/nuevocontrato.php");	
-// 	})
-// }
-// // grabar contrato
-// $("#contenido").on("click","button#grabar2",function(){		
-// 		var datos=$("#fcontrato").serialize();
-// 		$.ajax({
-// 			type:"post",
-// 			url:"./php/contrato/controladorContrato.php",
-// 			data:datos,
-// 			dataType:"html",
-// 			success:function(result){
-// 				$("#titulo").html("Listado Contratos");
-// 				$("#contenido" ).load("./php/contrato/index.php");
-// 			}
-// 		})
-// 	});
-// // editar contratos
-// $("#contenido").on("click","a.editar2",function(){
-// 		$("#titulo").html("Editar Contratos");
-// 		//Recupera datos del fromulario
-// 		var codigo = $(this).attr("codigo");
-// 		$.ajax({
-// 			type:"post",
-// 			url:"./php/contrato/editarcontrato.php",
-// 			data:"codigo=" + codigo,
-// 			dataType:"html"
-//         	}) .done(function( result ) {
-//         		$("#contenido").html(result);
-//         	});
-// 	});
-// // actualizar contratos
-// $("#contenido").on("click","button#actualizar2",function(){
-// 		$("#titulo").html("Listado Contratos");
-//         var datos=$("#fcontrato").serialize();
-//         console.log(datos);
-//             $.ajax({
-// 			type:"post",
-// 			url:"./php/contrato/controladorContrato.php",
-// 			data: datos,
-// 			dataType:"html"
-//         	}) .done(function( result ) {
-//         		$( "#contenido" ).load("./php/contrato/index.php");
-//         	});
-// 	});
-// // borrar contrato
-// $("#contenido").on("click","a.borrar2",function(){
-// 		//Recupera datos del formulario
-// 		var codigo = $(this).attr("codigo");
-// 		if ( confirm("¿Realmente desea borrar el registro?")){		
-// 			$.ajax({
-//         		method: "post",
-//             	url: "./php/contrato/controladorContrato.php",
-//             	data: {codigo: codigo, accion:'borrar'},
-//             	dataType: "html"
-//         	})  .done(function( result ) {
-//         		$("#titulo").html("Listado Contratos");
-//         		$( "#contenido" ).load("./php/contrato/index.php");
-//         	});
+// agregar contrato
+$("#contenido").on("click","button#nuevo2",function(){
+		$("#titulo").html("Nuevo contrato");
+		$( "#contenido" ).load("./php/contrato/nuevocontrato.php");	
+	})
+}
+// grabar contrato
+$("#contenido").on("click","button#grabar2",function(){		
+		var datos=$("#fcontrato").serialize();
+		$.ajax({
+			type:"post",
+			url:"./php/contrato/controladorContrato.php",
+			data:datos,
+			dataType:"html",
+			success:function(result){
+				$("#titulo").html("Listado Contratos");
+				$("#contenido" ).load("./php/contrato/index.php");
+			}
+		})
+	});
+// editar contratos
+$("#contenido").on("click","a.editar2",function(){
+		$("#titulo").html("Editar Contratos");
+		//Recupera datos del fromulario
+		var codigo = $(this).attr("codigo");
+		$.ajax({
+			type:"post",
+			url:"./php/contrato/editarcontrato.php",
+			data:"codigo=" + codigo,
+			dataType:"html"
+        	}) .done(function( result ) {
+        		$("#contenido").html(result);
+        	});
+	});
+// actualizar contratos
+$("#contenido").on("click","button#actualizar2",function(){
+		$("#titulo").html("Listado Contratos");
+        var datos=$("#fcontrato").serialize();
+        console.log(datos);
+            $.ajax({
+			type:"post",
+			url:"./php/contrato/controladorContrato.php",
+			data: datos,
+			dataType:"html"
+        	}) .done(function( result ) {
+        		$( "#contenido" ).load("./php/contrato/index.php");
+        	});
+	});
+// borrar contrato
+$("#contenido").on("click","a.borrar2",function(){
+		//Recupera datos del formulario
+		var codigo = $(this).attr("codigo");
+		if ( confirm("¿Realmente desea borrar el registro?")){		
+			$.ajax({
+        		method: "post",
+            	url: "./php/contrato/controladorContrato.php",
+            	data: {codigo: codigo, accion:'borrar'},
+            	dataType: "html"
+        	})  .done(function( result ) {
+        		$("#titulo").html("Listado Contratos");
+        		$( "#contenido" ).load("./php/contrato/index.php");
+        	});
 
-// 		}
-// 	});
-// // boton cerrar 
-// $("#contenido").on("click","button.btncerrar4",function(){
-// 		$("#titulo").html("Listado contratos");
-// 		$( "#contenido" ).load("./php/contrato/index.php");	
-// 	})
+		}
+	});
+// boton cerrar 
+$("#contenido").on("click","button.btncerrar4",function(){
+		$("#titulo").html("Listado contratos");
+		$( "#contenido" ).load("./php/contrato/index.php");	
+	})

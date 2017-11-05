@@ -12,33 +12,42 @@
 <body>
    
 
-    <div class="container">
-        <div class="panel-group"><div class="panel panel-primary">
-            <div class="panel-heading">Gestion</div>
+    <div class="container-fluid">
             <div class="jumbotron">                 
                 <h1>Gestión de Profesores</h1>   
             </div>
+        <div class="panel-group"><div class="panel panel-default">
+            <!--<div class="panel-heading">Gestion</div>-->
             <div class="panel-body">
                 
                 <div class="form-group" id="opciones"><div class="row">
 
-                        <div class="col-sm-2"><div class="panel panel-primary"><div class="panel-heading">Menu</div></p>
-                            <p><a class="btn btn-danger btn-block" href="php/profesores/index.php" role="button">Profesores</a></p>
+                        <div class="col-sm-3">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Menu
+                                </div>
+                                <div class="panel-body">
+                                    <div class="list-group">
+                                        <a class="list-group-item" href="php/profesores/index.php" id="profesores">Profesores</a>
+                                        <a class="list-group-item" href="php/asignaturas/index.php" id="asignaturas">Asignaturas</a>
+                                    </div>
+                                </div>
                            <!--  <p><a id="empresas" class="btn btn-danger btn-block" href="php/empresa/index.php" role="button">Empresas</a></p>
                             <p><a id="contrato" class="btn btn-danger btn-block" href="php/contrato/index.php" role="button">Contrato</a></p> -->
                         </div>
                     </div>
-                    <div class="col-sm-10"><div class="panel-group hide" id="contenedor"><div class="panel panel-primary">
-                            <div class="panel-heading" id="titulo"></div>
-                            <div class="panel-body">
-
-                                <div class="form-group" id="contenido">
+                    <div class="col-sm-9">
+                        <div class="panel-group hide" id="contenedor">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" id="titulo"></div>
+                                <div class="panel-body">
+                                    <div class="form-group" id="contenido">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    </div>
-
                 </div>
             </div>
         </div>

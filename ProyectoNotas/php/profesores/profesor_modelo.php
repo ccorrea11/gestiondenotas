@@ -1,6 +1,7 @@
 <?php
     require_once("../modeloAbstractoDB.php");
 	
+	
     class profesores extends ModeloAbstractoDB {
 		public $prof_id;
 		public $inst_id;

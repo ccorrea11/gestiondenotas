@@ -44,17 +44,14 @@
   					<i class="fa fa-trash-o"  aria-hidden="true"></i>
   					<span class="sr-only">Delete</span>
 				</a> </td> 
-
 				<td align='center'>
 				<a class="btn btn-primary editar" data-toggle="tooltip" codigo="<?php echo $fila['prof_id'] ?>">
   					<i class="fa fa-pencil"  aria-hidden="false"></i>
   					<span class="sr-only">Edit</span>
 				</a> </td> 
-
 			</tr>
 	<?php } ?>
 	</tbody>
-
 </table>
 
 </div><!-- /.box-body -->  
@@ -63,5 +60,5 @@
 <script>
     $(document).ready(function(){
     	$("#tabla").DataTable();
-        });
+    });
 </script>

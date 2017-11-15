@@ -283,8 +283,8 @@ $("#contenido").on("click","button.btncerrar4",function(){
 	
 	//Asignaturas
 		//Cerrar formulario
-			$("#contenido").on("click","button.btncerrarPersona", function(){
-				$( "#contenido" ).load("./php/personas/index.php");	
+			$("#contenido").on("click","button.btncerrarAsignatura", function(){
+				$( "#contenido" ).load("./php/asignaturas/index.php");	
 			});
 		//Nuevo - Mostrar formulario
 			$("#contenido").on("click","button#nuevaAsignatura", function(){

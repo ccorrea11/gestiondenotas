@@ -11,7 +11,7 @@ function Inicio(){
                 	$("#contenido" ).html(data);
         });
      });
-// boton cerrar
+	// boton cerrar
 	$("#contenido").on("click","button.btncerrar",function(){
 		$("#contenedor").removeClass("show");
        	$("#contenedor").addClass("hide");
@@ -23,7 +23,7 @@ function Inicio(){
 	})
 
 
-// borrar personas
+	// borrar personas
 	$("#contenido").on("click","a.borrar",function(){
 		//Recupera datos del formulario
 		var codigo = $(this).attr("codigo");
@@ -73,7 +73,7 @@ function Inicio(){
 	$("#contenido").on("click","button#nuevo",function(){
 		$("#titulo").html("Nuevo Profesor");
 		$( "#contenido" ).load("./php/profesores/nuevoProfesor.php");	
-	})
+	});
 
 	// guardar persona
 	$("#contenido").on("click","button#grabar",function(){		
@@ -187,8 +187,7 @@ $("#contenido").on("click","a.empleos",function(){
 $("#contenido").on("click","button#nuevo2",function(){
 		$("#titulo").html("Nuevo contrato");
 		$( "#contenido" ).load("./php/contrato/nuevocontrato.php");	
-	})
-}
+	});
 // grabar contrato
 $("#contenido").on("click","button#grabar2",function(){		
 		var datos=$("#fcontrato").serialize();
@@ -252,8 +251,7 @@ $("#contenido").on("click","a.borrar2",function(){
 $("#contenido").on("click","button.btncerrar4",function(){
 		$("#titulo").html("Listado contratos");
 		$( "#contenido" ).load("./php/contrato/index.php");	
-	})
-=======
+	});
 
 	//Boton cerrar en general
 		$("#contenido").on("click","button.btncerrar", function(){

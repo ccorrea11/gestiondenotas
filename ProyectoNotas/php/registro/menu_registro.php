@@ -1,19 +1,21 @@
-<?php
-    require_once('../asignaturas/modelo_asignaturas.php');
-    require_once('../instituciones/institucion_modelo.php');
-    $asignatura1 = new asignatura();
-    $lista=$asignatura1->lista();
-
-    
-    $institucion1 = new institucion();
-    $lista1=$institucion1->lista();
-?>  
 
 
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+	
+</head>
 
+<body>
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 	<div class="box-header">
-    	<i class="fa fa-building" aria-hidden="true">Profesores</i>
+    	
         <!-- tools box -->
         <div class="pull-right box-tools">
         	<button class="btn btn-info btn-sm btncerrar2" data-toggle="tooltip" title="Cerrar"><i class="fa fa-times"></i></button>
@@ -37,8 +39,8 @@
  					<div class="form-group">
                         <label class="control-label col-sm-2" for="profesor_id">ID profesor:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="profesor_id" name="profesor_id" placeholder="ID Profesor"
-                            value= "" readonly="true"  data-validation="length alphanumeric" data-validation-length="3-12" disabled>
+                            <input type="text" class="form-control" id="profesor_id" name="profesor_id" placeholder="Ingrese Codigo"
+                            value= "" readonly="true"  data-validation="length alphanumeric" data-validation-length="3-12">
                         </div>
                     </div>
 
@@ -46,7 +48,7 @@
                         <label class="control-label col-sm-2" for="profesor_nom">Nombre:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="profesor_nom" name="profesor_nom" placeholder="Ingrese Nombre"
-                            value = "" required>
+                            value = "">
                         </div>
                     </div>
 
@@ -59,19 +61,12 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="asignatura_id">Asignatura:</label>
+                        <label class="control-label col-sm-2" for="institucion_id">Institucion:</label>
                         <div class="col-sm-10">
-                            <select class="form-control" id="asignatura_id" name="asignatura_id">
-                            <option value="" selected>Seleccione ...</option>
-                                <?php foreach($lista as $fila){ ?>
-
-                                <option value="<?php echo trim($fila['asignatura_id']); ?>" >
-
-                                <?php echo utf8_encode(trim($fila['asignatura_nombre'])); ?> </option>
-
-                                <?php } ?>
-                            </select>   
+                            <input type="text" class="form-control" id="institucion_id" name="institucion_id" placeholder="Ingrese Codigo"
+                            >
                         </div>
+                        <!-- value = "" readonly="true"  data-validation="length alphanumeric" data-validation-length="3-12" -->
                     </div>
 					
                     <div class="form-group">
@@ -90,23 +85,6 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="institucion_id">Institucion:</label>
-                        <div class="col-sm-10">
-                            <select class="form-control" id="institucion_id" name="institucion_id">
-                            <option value="" selected>Seleccione ...</option>
-                                <?php foreach($lista1 as $fila){ ?>
-
-                                <option value="<?php echo trim($fila['institucion_id']); ?>" >
-
-                                <?php echo utf8_encode(trim($fila['institucion_nom'])); ?> </option>
-
-                                <?php } ?>
-                            </select>   
-                        </div>
-                    </div>
-                    
-
 					 <div class="form-group">        
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="button" id="grabar" class="btn btn-primary" data-toggle="tooltip" title="Grabar Profesor">Grabar Profesor</button>
@@ -120,3 +98,16 @@
 		</form>
 	</div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+    <!-- Funciones de Lógica de negocio -->
+    <script src="../../js/funcionesJquery.js"></script>
+
+
+</body>
+</html>

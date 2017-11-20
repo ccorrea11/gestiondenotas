@@ -3,7 +3,7 @@
 		private static $db_host ="localhost";
 		private static $db_user = "root";
 		private static $db_pass = "";
-		protected $db_name = "gestion_notas";
+		protected $db_name = "proyecto";
 		protected $query;
 		protected $rows = array();
 		private $conexion;
@@ -44,6 +44,7 @@
 				or die(mysqli_errno($this->conexion)." : " 
 				.mysqli_error($this->conexion)." | Query=".$this->query);
 			while ($this->rows[] = $result->fetch_assoc());
+			
 			$result->close();
 			$this->cerrar_conexion();
 			array_pop($this->rows);

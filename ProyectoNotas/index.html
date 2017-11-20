@@ -1,67 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html >
 <head>
-  <title>Proyecto De Notas</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <!--<link rel="stylesheet" type="text/css" href="css/estilo.css">--> 
+  <meta charset="UTF-8">
+  <title>Login</title>
+  
+
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+ 
+      <link rel="stylesheet" href="css/style.css">
+
+
+  
 </head>
+
 <body>
-   
+  <div class="container">
+  <div class="login">
+    
+  	<h1 class="login-heading">
+      <strong>Bienvenidos.</strong></h1>
+      
+      <form method="POST" action="login.php">
+        <input type="text" name="nick" id="nick" placeholder="nick Name" class="input-txt" required/>
+          <input type="password" name="contraseña" id="contraseña" placeholder="Contraseña" class="input-txt" required />
+          <div class="login-footer">
+            <button type="submit" class="btn btn--right">Ingresa</button>
+            
+            <a type="submit" href="php/registro/menu_registro.php">Registrarse</a>
+    
+          </div>
+        
+      </form>
 
-    <div class="container-fluid">
-            <div class="jumbotron">                 
-                <h1>Gestión de Profesores</h1>   
-            </div>
-        <div class="panel-group"><div class="panel panel-default">
-            <!--<div class="panel-heading">Gestion</div>-->
-            <div class="panel-body">
-                
-                <div class="form-group" id="opciones"><div class="row">
+  </div>
+</div>
+  
+    
 
-                        <div class="col-sm-3">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    Menu
-                                </div>
-                                <div class="panel-body">
-                                    <div class="list-group">
-                                        <a class="list-group-item" href="php/profesores/index.php" id="profesores">Profesores</a>
-                                        <a class="list-group-item" href="php/asignaturas/index.php" id="asignaturas">Asignaturas</a>
-                                    </div>
-                                </div>
-                           <!--  <p><a id="empresas" class="btn btn-danger btn-block" href="php/empresa/index.php" role="button">Empresas</a></p>
-                            <p><a id="contrato" class="btn btn-danger btn-block" href="php/contrato/index.php" role="button">Contrato</a></p> -->
-                        </div>
-                    </div>
-                    <div class="col-sm-9">
-                        <div class="panel-group hide" id="contenedor">
-                            <div class="panel panel-default">
-                                <div class="panel-heading" id="titulo"></div>
-                                <div class="panel-body">
-                                    <div class="form-group" id="contenido">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js"></script>
-    <!-- jQuery UI 1.11.4 -->
-    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-
-    <!-- Funciones de Lógica de negocio -->
-    <script src="js/funcionesJquery.js"></script>
-    <script>
-        $(document).ready(Inicio);
-    </script>
 </body>
 </html>

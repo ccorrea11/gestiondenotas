@@ -4,6 +4,18 @@
 	$codigo = $_POST['codigo'];
 	$profesores1 = new profesores();
 	$profesores1->consultar($codigo);
+
+    require_once('../asignaturas/modelo_asignaturas.php');
+    require_once('../instituciones/institucion_modelo.php');
+    $asignatura1 = new asignatura();
+    $lista=$asignatura1->lista();
+
+    
+    $institucion1 = new institucion();
+    $lista1=$institucion1->lista();
+
+
+
 ?>
 
  <!-- quick email widget -->
@@ -30,38 +42,85 @@
 
 
  					<div class="form-group">
-                        <label class="control-label col-sm-2" for="prof_id">Codigo:</label>
+                        <label class="control-label col-sm-2" for="profesor_id">Codigo:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="prof_id" name="prof_id" placeholder="Ingrese Codigo"
-                            value = "<?php echo trim($profesores1->prof_id); ?>" readonly="true">
+                            <input type="text" class="form-control" id="profesor_id" name="profesor_id" placeholder="Ingrese Codigo"
+                            value = "<?php echo trim($profesores1->profesor_id); ?>" readonly="true">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="nomb_prof">Nombre:</label>
+                        <label class="control-label col-sm-2" for="profesor_nom">Nombre:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="nomb_prof" name="nomb_prof" placeholder="Ingrese Nombre"
-                            value = "<?php echo trim($profesores1->nomb_prof); ?>">
+                            <input type="text" class="form-control" id="profesor_nom" name="profesor_nom" placeholder="Ingrese Nombre"
+                            value = "<?php echo trim($profesores1->profesor_nom); ?>">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="apel_prof">Apellido:</label>
+                        <label class="control-label col-sm-2" for="profesor_ape">Apellido:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="apel_prof" name="apel_prof" placeholder="Ingrese Apellidos"
-                            value = "<?php echo trim($profesores1->apel_prof); ?>">
+                            <input type="text" class="form-control" id="profesor_ape" name="profesor_ape" placeholder="Ingrese Apellidos"
+                            value = "<?php echo trim($profesores1->profesor_ape); ?>">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="correo_prof">Correo:</label>
+                        <label class="control-label col-sm-2" for="asignatura_id">País:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="correo_prof" name="correo_prof" placeholder="Ingrese correo"
-                            value = "<?php echo trim($profesores1->correo_prof); ?>">
+                            <select class="form-control" id="asignatura_id" name="asignatura_id">
+                            <?php foreach($lista as $fila){ 
+                            if(trim($profesores1->asignatura_id) == $fila['asignatura_id']){
+                            ?>
+                            <option selected value="<?php echo trim($fila['asignatura_id']); ?>" >
+                            <?php echo utf8_encode(trim($fila['asignatura_nombre'])); ?> </option>
+                            <?php }
+                            else{ ?>
+                            <option value="<?php echo trim($fila['asignatura_id']); ?>" >
+                            <?php echo utf8_encode(trim($fila['asignatura_nombre'])); ?> </option>
+        
+                            <?php }
+                            } ?>
+                            </select> 
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="profesor_cor">Correo:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="profesor_cor" name="profesor_cor" placeholder="Ingrese correo"
+                            value = "<?php echo trim($profesores1->profesor_cor); ?>">
+                        </div>
+                    </div>
+
+                     <div class="form-group">
+                        <label class="control-label col-sm-2" for="profesor_sexo">Sexo:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="profesor_sexo" name="profesor_sexo" placeholder="Ingrese correo"
+                            value = "<?php echo trim($profesores1->profesor_sexo); ?>">
                         </div>
                     </div>
 					
-					
+					<div class="form-group">
+                        <label class="control-label col-sm-2" for="institucion_id">País:</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="institucion_id" name="institucion_id">
+                            <?php foreach($lista1 as $fila){ 
+                            if(trim($profesores1->institucion_id) == $fila['institucion_id']){
+                            ?>
+                            <option selected value="<?php echo trim($fila['institucion_id']); ?>" >
+                            <?php echo utf8_encode(trim($fila['institucion_nom'])); ?> </option>
+                            <?php }
+                            else{ ?>
+                            <option value="<?php echo trim($fila['institucion_id']); ?>" >
+                            <?php echo utf8_encode(trim($fila['institucion_nom'])); ?> </option>
+        
+                            <?php }
+                            } ?>
+                            </select> 
+                        </div>
+                    </div>
+                    
             <!--  -->
 
 					 <div class="form-group">        

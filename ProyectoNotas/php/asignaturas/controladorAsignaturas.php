@@ -1,22 +1,19 @@
 <?php
  
-    require_once 'asignaturas_modelo.php';
-
-    $datos = $_POST;
-
-    switch ($_POST['accion']){
-        case 'editar':
-            $asignaturas = new Asignatura();
-            $asignaturas->editar($datos);
+require_once 'modelo_asignaturas.php';
+$datos = $_POST;
+switch ($_POST['accion']){
+    case 'editar':
+        $asignatura1 = new asignatura();
+		$asignatura1->editar($datos);
         break;
-        case 'nuevo':
-            $asignaturas = new Asignatura();
-            $asignaturas->nuevo($datos);
+    case 'nuevo':
+        $asignatura1 = new asignatura();
+		$asignatura1->nuevo($datos);
         break;
-        case 'borrar':
-            $asignaturas = new Asignatura();
-            $asignaturas->borrar($datos['codigo']);
+    case 'borrar':
+		$asignatura1 = new asignatura();
+		$asignatura1->borrar($datos['codigo']);
         break;
-    }
-
+}
 ?>

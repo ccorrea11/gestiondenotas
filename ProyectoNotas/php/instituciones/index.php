@@ -1,7 +1,7 @@
 <?php
-	require_once('profesor_modelo.php');
-	$profesores1 = new profesores();
-	$listado = $profesores1->lista();
+	require_once('institucion_modelo.php');
+	$institucion1 = new institucion();
+	$listado = $institucion1->lista();
 
 	
 ?>
@@ -11,7 +11,7 @@
     <i class="ion ion-clipboard"></i>
      <!-- tools box -->
     <div class="pull-right box-tools">
-    	<button class="btn btn-info btn-sm " id="nuevo"  data-toggle="tooltip" title="Nueva Profesor"><i class="fa fa-plus" aria-hidden="true"></i></button> 
+    	<button class="btn btn-info btn-sm " id="nuevoins"  data-toggle="tooltip" title="Nueva institucion"><i class="fa fa-plus" aria-hidden="true"></i></button> 
     	<button class="btn btn-info btn-sm btncerrar"  data-toggle="tooltip" title="Ocultar"><i class="fa fa-times"></i></button>
 
     </div><!-- /. tools -->
@@ -23,34 +23,27 @@
 	<thead>
 		<tr>
 			<th>ID</th>
-			<th>Nombres</th>
-			<th>Apellidos</th>
-			<th>Institucion</th>
-			<th>Sexo</th>
-			<th>Correo</th>
-			<th>Asignatura</th>
-			<th>&nbsp;</th>
-			<th>&nbsp;</th>
+			<th>Nombre</th>
+			<th>Direccion</th>
+			<th>Ciudad</th>
+			
 		</tr>
 	</thead>
 	<tbody>
 	<?php foreach($listado as $fila){ ?>
 			<tr>
-				<td><?php echo $fila['profesor_id'] ?> </td>
-				<td><?php echo utf8_encode($fila['profesor_nom']) ?> </td>
-				<td><?php echo utf8_encode($fila['profesor_ape']) ?> </td> 
+				<td><?php echo $fila['institucion_id'] ?> </td>
 				<td><?php echo utf8_encode($fila['institucion_nom']) ?> </td>
-				<td><?php echo utf8_encode($fila['profesor_sexo']) ?> </td>
-				<td><?php echo utf8_encode($fila['profesor_cor']) ?> </td>
-				<td><?php echo utf8_encode($fila['asignatura_nombre']) ?> </td>
+				<td><?php echo utf8_encode($fila['institucion_dir']) ?> </td> 
+				<td><?php echo utf8_encode($fila['ciudad_nom']) ?> </td> 
 				
 				<td align='center'> 
-				<a class="btn btn-danger borrar" data-toggle="tooltip" codigo="<?php echo  $fila['profesor_id'] ?>">
+				<a class="btn btn-danger borrarins" data-toggle="tooltip" codigo="<?php echo  $fila['institucion_id'] ?>">
   					<i class="fa fa-trash-o"  aria-hidden="true"></i>
   					<span class="sr-only">Delete</span>
 				</a> </td> 
 				<td align='center'>
-				<a class="btn btn-primary editar" data-toggle="tooltip" codigo="<?php echo $fila['profesor_id'] ?>">
+				<a class="btn btn-primary editarins" data-toggle="tooltip" codigo="<?php echo $fila['institucion_id'] ?>">
   					<i class="fa fa-pencil"  aria-hidden="false"></i>
   					<span class="sr-only">Edit</span>
 				</a> </td> 

@@ -343,3 +343,176 @@ $("#contenido").on("click","button.btncerrar4",function(){
 				}
 			});
 }
+
+//-------------------------------------------------------------------------
+// Gestion de Asignaturas 
+
+// Nueva asignatura
+$("#contenido").on("click","button#nuevoasig",function(){
+		$("#titulo").html("Nueva Asignatura");
+		$( "#contenido" ).load("./php/asignaturas/nuevaAsignatura.php");	
+	});
+
+
+// Editar Asignaturas
+$("#contenido").on("click","a.editarasig",function(){
+		$("#titulo").html("Editar Asignaturas");
+		//Recupera datos del fromulario
+		var codigo = $(this).attr("codigo");
+		$.ajax({
+			type:"post",
+			url:"./php/asignaturas/editarAsignaturas.php",
+			data:"codigo=" + codigo,
+			dataType:"html"
+        	}) .done(function( result ) {
+        		$("#contenido").html(result);
+        	});
+	});
+
+// Grabar Asignatura
+$("#contenido").on("click","button#grabarasig",function(){		
+		var datos=$("#fasignatura").serialize();
+		console.log(datos);
+		$.ajax({
+			type:"post",
+			url:"./php/asignaturas/controladorAsignaturas.php",
+			data:datos,
+			dataType:"html",
+			success:function(result){
+				$("#titulo").html("Listado Asignaturas");
+				$("#contenido" ).load("./php/asignaturas/index.php");
+			}
+		})
+	});	
+
+
+// Cerrar Asignaturas 
+$("#contenido").on("click","button.btncerrarasig",function(){
+		$("#titulo").html("Listado Asignaturas");
+		$( "#contenido" ).load("./php/asignaturas/index.php");	
+	})
+$("#contenido").on("click","button.btncerrarasig2",function(){
+		$("#titulo").html("Listado Asignaturas");
+		$( "#contenido" ).load("./php/asignaturas/index.php");	
+	})
+
+// Actualizar Asignaturas
+$("#contenido").on("click","button#actualizarasig",function(){
+		$("#titulo").html("Listado De Asignaturas");
+        var datos=$("#fasignatura").serialize();
+        console.log(datos);
+            $.ajax({
+			type:"post",
+			url:"./php/asignaturas/controladorAsignaturas.php",
+			data: datos,
+			dataType:"html"
+        	}) .done(function( result ) {
+        		$( "#contenido" ).load("./php/asignaturas/index.php");
+        	});
+	});
+
+// Borrar Asignatura
+$("#contenido").on("click","a.borrarasig",function(){
+		//Recupera datos del formulario
+		var codigo = $(this).attr("codigo");
+		if ( confirm("¿Realmente desea borrar el registro?")){		
+			$.ajax({
+        		method: "post",
+            	url: "./php/asignaturas/controladorAsignaturas.php",
+            	data: {codigo: codigo, accion:'borrar'},
+            	dataType: "html"
+        	})  .done(function( result ) {
+        		$("#titulo").html("Listado Asignaturas");
+        		$( "#contenido" ).load("./php/asignaturas/index.php");
+        	});
+
+		}
+	});
+
+//-------------------------------------------------------------------------
+//-------------------------------------------------------------------------
+// Gestion de Instituciones
+
+// Nueva Institucion
+$("#contenido").on("click","button#nuevoins",function(){
+		$("#titulo").html("Nueva Institucion");
+		$( "#contenido" ).load("./php/instituciones/nuevaInstitucion.php");	
+	});
+
+
+// Editar Instituciones
+$("#contenido").on("click","a.editarins",function(){
+		$("#titulo").html("Editar Institucion");
+		//Recupera datos del fromulario
+		var codigo = $(this).attr("codigo");
+		$.ajax({
+			type:"post",
+			url:"./php/instituciones/editarInstitucion.php",
+			data:"codigo=" + codigo,
+			dataType:"html"
+        	}) .done(function( result ) {
+        		$("#contenido").html(result);
+        	});
+	});
+
+// Grabar Institucion
+$("#contenido").on("click","button#grabarins",function(){		
+		var datos=$("#finstitucion").serialize();
+		console.log(datos);
+		$.ajax({
+			type:"post",
+			url:"./php/instituciones/controladorInstitucion.php",
+			data:datos,
+			dataType:"html",
+			success:function(result){
+				$("#titulo").html("Listado Instituciones");
+				$("#contenido" ).load("./php/instituciones/index.php");
+			}
+		})
+	});	
+
+
+// Cerrar Institucion
+$("#contenido").on("click","button.btncerrarins",function(){
+		$("#titulo").html("Listado Asignaturas");
+		$( "#contenido" ).load("./php/instituciones/index.php");	
+	})
+$("#contenido").on("click","button.btncerrarins2",function(){
+		$("#titulo").html("Listado Asignaturas");
+		$( "#contenido" ).load("./php/instituciones/index.php");	
+	})
+
+// Actualizar Institucion
+$("#contenido").on("click","button#actualizarins",function(){
+		$("#titulo").html("Listado De Instituciones");
+        var datos=$("#finstitucion").serialize();
+        console.log(datos);
+            $.ajax({
+			type:"post",
+			url:"./php/instituciones/controladorInstitucion.php",
+			data: datos,
+			dataType:"html"
+        	}) .done(function( result ) {
+        		$( "#contenido" ).load("./php/instituciones/index.php");
+        	});
+	});
+
+// Borrar Asignatura
+$("#contenido").on("click","a.borrarins",function(){
+		//Recupera datos del formulario
+		var codigo = $(this).attr("codigo");
+		if ( confirm("¿Realmente desea borrar el registro?")){		
+			$.ajax({
+        		method: "post",
+            	url: "./php/instituciones/controladorInstitucion.php",
+            	data: {codigo: codigo, accion:'borrar'},
+            	dataType: "html"
+        	})  .done(function( result ) {
+        		$("#titulo").html("Listado Instituciones");
+        		$( "#contenido" ).load("./php/instituciones/index.php");
+        	});
+
+		}
+	});
+
+//-------------------------------------------------------------------------

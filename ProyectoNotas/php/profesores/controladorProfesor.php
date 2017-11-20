@@ -13,7 +13,7 @@ switch ($_POST['accion']){
         break;
     case 'borrar':
 		$profesores = new profesores();
-		$profesores->borrar($datos['prof_id']);
+		$profesores->borrar($datos['codigo']);
         break;
 }
 ?>
